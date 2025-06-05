@@ -10,42 +10,20 @@ export function MainNav() {
   const isPublicRoute = !pathname.startsWith("/dashboard")
 
   return (
-    <div className="mr-4 flex">
-      <Link href="/" className="mr-6 flex items-center space-x-2">
-        <span className="font-bold">SaaS Platform</span>
+    <div className="w-full flex flex-col items-center justify-center gap-6">
+      <Link href="/" className="flex items-center">
+        <span className="font-bold text-xl text-primary">iShape</span>
       </Link>
-      <nav className="flex items-center space-x-6 text-sm font-medium">
-        {isPublicRoute ? (
-          <>
-            <Link
-              href="/features"
-              className={cn(
-                "transition-colors hover:text-foreground/80",
-                pathname === "/features" ? "text-foreground" : "text-foreground/60"
-              )}
-            >
-              Features
-            </Link>
-            <Link
-              href="/pricing"
-              className={cn(
-                "transition-colors hover:text-foreground/80",
-                pathname === "/pricing" ? "text-foreground" : "text-foreground/60"
-              )}
-            >
-              Pricing
-            </Link>
-            <div className="ml-auto flex items-center space-x-2">
-              <Link href="/login">
-                <Button variant="ghost">Login</Button>
-              </Link>
-              <Link href="/register">
-                <Button>Get Started</Button>
-              </Link>
-            </div>
-          </>
-        ) : null}
-      </nav>
+      {isPublicRoute && (
+        <div className="flex flex-col items-center gap-4 w-full px-4 sm:flex-row sm:justify-center">
+          <Link href="/login">
+            <Button variant="ghost" className="w-full sm:w-auto">Login</Button>
+          </Link>
+          <Link href="/register">
+            <Button className="w-full sm:w-auto bg-primary hover:bg-primary-dark">Get Started</Button>
+          </Link>
+        </div>
+      )}
     </div>
   )
 }

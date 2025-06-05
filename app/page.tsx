@@ -1,20 +1,19 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import PublicLayout from "@/components/layouts/public-layout"
-import logo from "@/components/assets/initial-page-image.svg"
-import initialPhoto from "@/components/assets/LOGO-COMPLETA-SEM-BG.png"
+import initialPhoto from "@/components/assets/initial-page-image.svg"
+import logo from "@/components/assets/LOGO-COMPLETA-SEM-BG.png"
 import Image from 'next/image'
 
 
 export default function Home() {
   return (
     <PublicLayout>
-      <div className="flex flex-col items-center min-h-screen bg-[#1d1d1d] px-4">
-        <div className="w-full h-[80vh] relative mb-6">
+      <div className="flex flex-col justify-center gap-6 items-center min-h-screen bg-[#1d1d1d] px-4">
+        <div className="w-full relative mb-6">
           <Image
             src={initialPhoto}
             alt="iShape Welcome"
-            className="w-full h-full object-cover"
           />
         </div>
         

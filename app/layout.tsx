@@ -1,32 +1,43 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
+import './globals.css'
+import type { Metadata } from 'next'
+import { Montserrat, Raleway } from 'next/font/google'
+import { ThemeProvider } from '@/components/theme-provider'
 
-const inter = Inter({ subsets: ['latin'] });
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  variable: '--font-montserrat'
+})
+
+const raleway = Raleway({
+  subsets: ['latin'],
+  variable: '--font-raleway'
+})
 
 export const metadata: Metadata = {
-  title: 'SaaS Platform',
-  description: 'Modern SaaS platform built with Next.js',
-};
+  title: 'iShape - Your AI Fitness Coach',
+  description: 'Personal fitness and nutrition tracking with AI assistance',
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body className={`${montserrat.variable} ${raleway.variable} font-sans bg-background text-white`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

@@ -1,31 +1,62 @@
-import PublicLayout from "@/components/layouts/public-layout"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import PublicLayout from "@/components/layouts/public-layout"
+import logo from "@/components/assets/initial-page-image.svg"
+import initialPhoto from "@/components/assets/LOGO-COMPLETA-SEM-BG.png"
+import Image from 'next/image'
+
 
 export default function Home() {
   return (
     <PublicLayout>
-      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
-        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
-          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-            Build your next SaaS platform with our modern stack
-          </h1>
-          <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            High-performance SaaS platform with Next.js 13, React, and Tailwind CSS.
-            Everything you need to get started.
-          </p>
-          <div className="space-x-4">
-            <Link href="/login">
-              <Button size="lg">Get Started</Button>
-            </Link>
-            <Link href="/register">
-              <Button variant="outline" size="lg">
-                Learn More
-              </Button>
-            </Link>
-          </div>
+      <div className="flex flex-col items-center min-h-screen bg-[#1d1d1d] px-4">
+        <div className="w-full h-[80vh] relative mb-6">
+          <Image
+            src={initialPhoto}
+            alt="iShape Welcome"
+            className="w-full h-full object-cover"
+          />
         </div>
-      </section>
+        
+        <div className="w-full max-w-[200px] mb-8">
+          <Image
+            src={logo}
+            alt="iShape Logo"
+            className="w-full h-auto"
+          />
+        </div>
+
+        <div className="flex flex-col w-full max-w-[280px] gap-4">
+          <Link href="/login" className="w-full">
+            <Button 
+              className="w-full bg-[#e86e23] hover:bg-[#e86e23]/90 text-white font-montserrat"
+            >
+              Login
+            </Button>
+          </Link>
+          
+          <Link href="/register" className="w-full">
+            <Button 
+              className="w-full bg-[#e86e23] hover:bg-[#e86e23]/90 text-white font-montserrat"
+            >
+              Cadastro
+            </Button>
+          </Link>
+          
+          <a 
+            href="https://initial.ishape.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-full"
+          >
+            <Button 
+              className="w-full bg-[#e86e23] hover:bg-[#e86e23]/90 text-white font-montserrat"
+            >
+              Iniciar Avaliação
+            </Button>
+          </a>
+        </div>
+      </div>
     </PublicLayout>
   )
 }
